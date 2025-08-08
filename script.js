@@ -8,6 +8,7 @@ let computerPoints = 0
 const roundMarker = document.getElementById("roundMarker");
 const playerScore = document.getElementById("playerScore");
 const computerScore = document.getElementById("computerScore");
+const outcome = document.getElementById("outcome");
 
 // set up computer's game participation
 function getComputerChoice(min, max) {
@@ -125,4 +126,15 @@ function playRound(computerSelection, playerSelection) {
         lizardBtn.disabled = true;
         spockBtn.disabled = true;
     }
+
+    // test display for outcome
+    if (playerPoints == 5) {
+        var gameOutcome = "You WIN the game! Click the restart button to play again."
+    } else if (computerPoints == 5) {
+        var gameOutcome = "You LOSE the game. Click the restart button to try again."
+    } else {
+        var gameOutcome = " "
+    }
+
+    outcome.textContent = gameOutcome
 }
