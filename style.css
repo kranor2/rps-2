@@ -12,8 +12,24 @@ body {
     font-size: 1em;
 }
 
-h1, nav, main {
+h1 {
     margin: 2vh 1vw;
+}
+
+nav {
+    margin: 2vh 1vw;
+}
+
+main {
+    margin: 4vh 1vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: space-between;
+}
+
+aside {
+    margin-left: 7vw;
 }
 
 a {
@@ -38,4 +54,16 @@ button, a {
 
 .playerButtons {
     margin-top: 2vh;
+}
+
+.stats {
+    margin-top: 4vh;
+}
+
+.score {
+    margin-top: 1vh;
+}
+
+#restart {
+    margin-top: 4vh;
 }
