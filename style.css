@@ -1,0 +1,41 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Workbench", serif;
+    color: limegreen;
+    background-color: black;
+    font-variant: none;
+    font-size: 1em;
+}
+
+h1, nav, main {
+    margin: 2vh 1vw;
+}
+
+a {
+    font-style: none;
+    color: limegreen;
+    text-decoration: none;
+    padding: 2vh 3vw;
+}
+
+button, a {
+    width: 10vw;
+    height: 7.5vh;
+    border-radius: 0;
+    border: 5px dashed limegreen;
+    color: limegreen;
+    background-color: black;
+    font-family: "Workbench", serif;
+    font-variant: none;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.playerButtons {
+    margin-top: 2vh;
+}
