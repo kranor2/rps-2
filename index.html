@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>kranor2 | RPS+ v2</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Workbench&display=swap" rel="stylesheet">
 </head>
 <body>
     <h1>Rock Paper Scissors Lizard Spock</h1>
@@ -12,39 +16,41 @@
         <button id="start">Start Game</button>
         <a href=" ">Rules</a>
     </nav>
-    <section>
-        <h2>Choose your weapon:</h2>
-        <div class="playerButtons">
-            <button class="buttons" id="rock"><img id="rock-img" src=" ">Rock</button>
-            <button class="buttons" id="paper"><img id="paper-img" src=" ">Paper</button>
-            <button class="buttons" id="scissors"><img id="paper-img" src=" ">Scissors</button>
-            <button class="buttons" id="lizard"><img id="lizard-img" src=" ">Lizard</button>
-            <button class="buttons" id="spock"><img id="spock-img" src=" ">Spock</button>
-        </div>
-    </section>
-    <aside>
-        <h2>Scoreboard</h2>
-        <div class="score">
-            <h3>Round</h3>
-            <p class="marker" id="roundMarker"></p>
-        </div>
-        <div class="score">
-            <h3>Player</h3>
-            <p class="marker" id="playerScore"></p>
-        </div>
-        <div class="score">
-            <h3>Computer</h3>
-            <p class="marker" id="computerScore"></p>
-        </div>
-        <div class="endgame">
-            <div id="gameLog">
-                <h2>Game Log</h2>
-                <p id="logs"></p>
+    <main>
+        <section>
+            <h2>Choose your weapon:</h2>
+            <div class="playerButtons">
+                <button class="buttons" id="rock"><img id="rock-img" src=" ">Rock</button>
+                <button class="buttons" id="paper"><img id="paper-img" src=" ">Paper</button>
+                <button class="buttons" id="scissors"><img id="paper-img" src=" ">Scissors</button>
+                <button class="buttons" id="lizard"><img id="lizard-img" src=" ">Lizard</button>
+                <button class="buttons" id="spock"><img id="spock-img" src=" ">Spock</button>
             </div>
-            <p id="outcome"></p>
-            <button id="restart"><img id="restart-img" src=" ">Restart</button>
-        </div>
-    </aside>
+        </section>
+        <aside>
+            <h2>Scoreboard</h2>
+            <div class="score">
+                <h3>Round</h3>
+                <p class="marker" id="roundMarker"></p>
+            </div>
+            <div class="score">
+                <h3>Player</h3>
+                <p class="marker" id="playerScore"></p>
+            </div>
+            <div class="score">
+                <h3>Computer</h3>
+                <p class="marker" id="computerScore"></p>
+            </div>
+            <div class="endgame">
+                <div id="gameLog">
+                    <h2>Game Log</h2>
+                    <p id="logs"></p>
+                </div>
+                <p id="outcome"></p>
+                <button id="restart"><img id="restart-img" src=" ">Restart</button>
+            </div>
+        </aside>
+    </main>    
     <script src="script.js"></script>
 </body>
 </html>
