@@ -8,31 +8,103 @@ let computerPoints = 0
 const roundMarker = document.getElementById("roundMarker");
 const playerScore = document.getElementById("playerScore");
 const computerScore = document.getElementById("computerScore");
+const logs = document.getElementById("logs");
 const outcome = document.getElementById("outcome");
+const rockBtn = document.getElementById("rock");
+const paperBtn = document.getElementById("paper");
+const scissorsBtn = document.getElementById("scissors");
+const lizardBtn = document.getElementById("lizard");
+const spockBtn = document.getElementById("spock");
 
 // set up computer's game participation
 function getComputerChoice(min, max) {
     return Math.floor(Math.random() * (5 - 1 + 1) + 1);
 }
-let computerChoice = getComputerchoice(1, 5);
+let computerChoice = getComputerChoice(1, 5);
 
-function getComputerSelection() {
+function getComputerSelection(computerChoice) {
     if (computerChoice == 1) {
         return "rock"
-    } else if (computerChoice == 2) {
+    } 
+    else if (computerChoice == 2) {
         return "paper"
-    } else if (computerChoice == 3) {
+    } 
+    else if (computerChoice == 3) {
         return "scissors"
-    } else if (computerChoice == 4) {
+    } 
+    else if (computerChoice == 4) {
         return "lizard"
-    } else if (computerChoice == 5) {
+    } 
+    else if (computerChoice == 5) {
         return "spock"
-    } else {
+    } 
+    else {
         return "forfeit"
     }
 };
 
 let computerSelection = getComputerSelection("rock" | "paper" | "scissors" | "lizard" | "spock");
+
+// text displays for game log
+function playerChoice(logEntry) {
+    const entry = document.createElement("p");
+    entry.classList.add("entry");
+    entry.textContent = logEntry;
+    logs.appendChild(entry);
+};
+
+// restart button
+const restart = document.querySelector("#restart");
+restart.onclick = () => history.go(0);
+
+// event listener for gameplay using UI
+rockBtn.addEventListener("click", () => {
+    playerSelection = "rock"
+    var logEntry = "You chose rock."
+    playerChoice(logEntry);
+    computerChoice = getComputerChoice(1, 5);
+    computerSelection = getComputerSelection(computerChoice);
+    playRound(computerSelection, playerSelection);
+});
+paperBtn.addEventListener("click", () => {
+    playerSelection = "paper"
+    var logEntry = "You chose paper."
+    playerChoice(logEntry);
+    computerChoice = getComputerChoice(1, 5);
+    computerSelection = getComputerSelection(computerChoice);
+    playRound(computerSelection, playerSelection);
+});
+scissorsBtn.addEventListener("click", () => {
+    playerSelection = "scissors"
+    var logEntry = "You chose scissors."
+    playerChoice(logEntry);
+    computerChoice = getComputerChoice(1, 5);
+    computerSelection = getComputerSelection(computerChoice);
+    playRound(computerSelection, playerSelection);
+});
+lizardBtn.addEventListener("click", () => {
+    playerSelection = "lizard"
+    var logEntry = "You chose lizard."
+    playerChoice(logEntry);
+    computerChoice = getComputerChoice(1, 5);
+    computerSelection = getComputerSelection(computerChoice);
+    playRound(computerSelection, playerSelection);
+});
+spockBtn.addEventListener("click", () => {
+    playerSelection = "spock"
+    var logEntry = "You chose spock."
+    playerChoice(logEntry);
+    computerChoice = getComputerChoice(1, 5);
+    computerSelection = getComputerSelection(computerChoice);
+    playRound(computerSelection, playerSelection);
+});
+
+function gameStatus(result) {
+    const roundResult = document.createElement("p");
+    roundResult.classList.add("result");
+    roundResult.textContent = result;
+    logs.appendChild(roundResult);
+}
 
 // Rules
 // scissors cuts (>) paper
@@ -49,69 +121,107 @@ let computerSelection = getComputerSelection("rock" | "paper" | "scissors" | "li
 function playRound(computerSelection, playerSelection) {
 // gameplay: rounds and standoff outcomes -> text display/update for score and round markers    
     if (computerSelection == "scissors" && playerSelection == "paper") {
-        var logMsg = "You Lose! Scissors cuts paper."
+        var result = "You Lose! Scissors cuts paper."
+        gameStatus(result);
+        currentRound += 1;
         computerPoints += 1;
     } else if (computerSelection == "paper" && playerSelection == "scissors") {
-        var logMsg = "You Win! Scissors cuts paper."
+        var result = "You Win! Scissors cuts paper."
+        gameStatus(result);
+        currentRound += 1;
         playerPoints += 1;
     } else if (computerSelection == "paper" && playerSelection == "rock") {
-        var logMsg = "You Lose! Paper covers rock."
+        var result = "You Lose! Paper covers rock."
+        gameStatus(result);
+        currentRound += 1;
         computerPoints += 1;
     } else if (computerSelection == "rock" && playerSelection == "paper") {
-        var logMsg = "You Win! Paper covers rock."
+        var result = "You Win! Paper covers rock."
+        gameStatus(result);
+        currentRound += 1;
         playerPoints += 1;
     } else if (computerSelection == "rock" && playerSelection == "lizard") {
-        var logMsg = "You Lose! Rock smashes lizard."
+        var result = "You Lose! Rock smashes lizard."
+        gameStatus(result);
+        currentRound += 1;
         computerPoints += 1;
     } else if (computerSelection == "lizard" && playerSelection == "rock") {
-        var logMsg = "You Win! Rock smashes lizard."
+        var result = "You Win! Rock smashes lizard."
+        gameStatus(result);
+        currentRound += 1;
         playerPoints += 1;
     } else if (computerSelection == "lizard" && playerSelection == "spock") {
-        var logMsg = "You Lose! Lizard poisons Spock."
+        var result = "You Lose! Lizard poisons Spock."
+        gameStatus(result);
+        currentRound += 1;
         computerPoints += 1;
     } else if (computerSelection == "spock" && playerSelection == "lizard") {
-        var logMsg = "You Win! Lizard poisons Spock."
+        var result = "You Win! Lizard poisons Spock."
+        gameStatus(result);
+        currentRound += 1;
         playerPoints += 1;
     } else if (computerSelection == "spock" && playerSelection == "scissors") {
-        var logMsg = "You Lose! Spock breaks scissors."
+        var result = "You Lose! Spock breaks scissors."
+        gameStatus(result);
+        currentRound += 1;
         computerPoints += 1;
     } else if (computerSelection == "scissors" && playerSelection == "spock") {
-        var logMsg = "You Win! Spock breaks scissors."
+        var result = "You Win! Spock breaks scissors."
+        gameStatus(result);
+        currentRound += 1;
         playerPoints += 1;
     } else if (computerSelection == "scissors" && playerSelection == "lizard") {
-        var logMsg = "You Lose! Scissors decapitates lizard."
+        var result = "You Lose! Scissors decapitates lizard."
+        gameStatus(result);
+        currentRound += 1;
         computerPoints += 1;
     } else if (computerSelection == "lizard" && playerSelection == "scissors") {
-        var logMsg = "You Win! Scissors decapitates lizard."
+        var result = "You Win! Scissors decapitates lizard."
+        gameStatus(result);
+        currentRound += 1;
         playerPoints += 1;
     } else if (computerSelection == "lizard" && playerSelection == "paper") {
-        var logMsg = "You Lose! Lizard eats paper."
+        var result = "You Lose! Lizard eats paper."
+        gameStatus(result);
+        currentRound += 1;
         computerPoints += 1;
     } else if (computerSelection == "paper" && playerSelection == "lizard") {
-        var logMsg = "You Win! Lizard eats paper."
+        var result = "You Win! Lizard eats paper."
+        gameStatus(result);
+        currentRound += 1;
         playerPoints += 1;
     } else if (computerSelection == "paper" && playerSelection == "spock") {
-        var logMsg = "You Lose! Paper disproves Spock."
+        var result = "You Lose! Paper disproves Spock."
+        gameStatus(result);
+        currentRound += 1;
         computerPoints += 1;
     } else if (computerSelection == "spock" && playerSelection == "paper") {
-        var logMsg = "You Win! Paper disproves Spock."
+        var result = "You Win! Paper disproves Spock."
+        gameStatus(result);
+        currentRound += 1;
         playerPoints += 1;
     } else if (computerSelection == "spock" && playerSelection == "rock") {
-        var logMsg = "You Lose! Spock vaporizes rock."
+        var result = "You Lose! Spock vaporizes rock."
+        gameStatus(result);
+        currentRound += 1;
         computerPoints += 1;
     } else if (computerSelection == "rock" && playerSelection == "spock") {
-        var logMsg = "You Win! Spock vaporizes rock."
+        var result = "You Win! Spock vaporizes rock."
+        gameStatus(result);
+        currentRound += 1;
         playerPoints += 1;
     } else if (computerSelection == "rock" && playerSelection == "scissors") {
-        var logMsg = "You Lose! Rock crushes scissors."
+        var result = "You Lose! Rock crushes scissors."
+        gameStatus(result);
+        currentRound += 1;
         computerPoints += 1;
     } else if (computerSelection == "scissors" && playerSelection == "rock") {
-        var logMsg = "You Win! Rock crushes scissors."
+        var result = "You Win! Rock crushes scissors."
+        gameStatus(result);
+        currentRound += 1;
         playerPoints += 1;
     }
 
-    logPlay(logMsg);
-    currentRound += 1;
     // display current round, player & computer scores in stats elements
     roundMarker.innerHTML = `${currentRound}`;
     playerScore.innerHTML = `${playerPoints}`;
@@ -135,6 +245,4 @@ function playRound(computerSelection, playerSelection) {
     } else {
         var gameOutcome = " "
     }
-
-    outcome.textContent = gameOutcome
 }
