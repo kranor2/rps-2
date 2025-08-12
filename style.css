@@ -52,7 +52,7 @@ button, a {
     cursor: pointer;
 }
 
-.playerButtons {
+.playerButtons, #logs {
     margin-top: 2vh;
 }
 
@@ -66,4 +66,8 @@ button, a {
 
 #restart {
     margin-top: 4vh;
+}
+
+#logs > p {
+    margin-top: 0.5vh;
 }
