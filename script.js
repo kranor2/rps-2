@@ -220,6 +220,10 @@ function playRound(computerSelection, playerSelection) {
         gameStatus(result);
         currentRound += 1;
         playerPoints += 1;
+    } else {
+        var result = "It's a Tie!"
+        gameStatus(result);
+        currentRound += 1;
     }
 
     // display current round, player & computer scores in stats elements
@@ -237,12 +241,24 @@ function playRound(computerSelection, playerSelection) {
         spockBtn.disabled = true;
     }
 
-    // test display for outcome
+    // text display for outcome
     if (playerPoints == 5) {
         var gameOutcome = "You WIN the game! Click the restart button to play again."
+        endgame(gameOutcome);
     } else if (computerPoints == 5) {
         var gameOutcome = "You LOSE the game. Click the restart button to try again."
+        endgame(gameOutcome);
     } else {
         var gameOutcome = " "
     }
-}
+};
+
+// text displays for game log
+function endgame(gameOutcome) {
+    const body = document.querySelector("body");
+    const main = document.querySelector("main");
+    main.remove();
+    const endgameMsg = document.createElement("div");
+    endgameMsg.textContent = gameOutcome;
+    body.appendChild(endgameMsg);
+};
